@@ -7,21 +7,21 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 var nodemailer = require("nodemailer");
 
-var sender = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "office@learningroomdigital.com",
-    pass: "nsminxxrfxrjlxpc",
-  },
-});
-
 // var sender = nodemailer.createTransport({
-//   service:"gmail",
-//   auth:{
-//     user:"dharundds@gmail.com",
-//     pass:"becjaziwymugppqv"
-//   }
-// })
+//  service: "gmail",
+//  auth: {
+//    user: "office@learningroomdigital.com",
+//    pass: "nsminxxrfxrjlxpc",
+//  },
+//});
+
+ var sender = nodemailer.createTransport({
+   service:"gmail",
+   auth:{
+     user:"dharundds@gmail.com",
+     pass:"becjaziwymugppqv"
+   }
+ })
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -54,8 +54,8 @@ app.post("/api/learningroom/contact",(req,res)=>{
   const message = req.body.message;
 
   var mail = {
-    from:"office@learningroomdigital.com",
-    to:["office@learningroomdigital.com"],
+    from:"dharundds@gmail.com",
+    to:["dharundds@gmail.com"],
     subject: `Enquiry submitted from Learningroom website by ${fname}`,
     html:` 
       <style>
